@@ -63,8 +63,8 @@ export function TransactionModal({stateModal, className }: TransactionModalProps
   }
 
   return (
-    <div className={`flex flex-col justify-center items-center fixed w-full h-screen mt-[-80px] bg-gray-900/80
-      
+    <div className={`
+      fixed top-0 left-0 flex flex-col justify-center items-center w-full h-screen mt-[-80px] bg-gray-900/80
       ${className}
     `}>
 

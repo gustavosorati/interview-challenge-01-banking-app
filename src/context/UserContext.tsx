@@ -39,7 +39,6 @@ interface UserContextProviderProps {
 export const UserContextProvider = ({children}: UserContextProviderProps) => {
   const [user, setUser] = useState<User>({} as User);
   const [transactions, setTransactions] = useState<ITransactions[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   async function getUser() {

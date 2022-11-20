@@ -1,4 +1,3 @@
-import { MagnifyingGlass } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
 import { Balance } from "../components/Balance";
 import { TransactionModal } from "../components/TransactionModal";
@@ -58,12 +57,12 @@ export function Dashboard() {
   }
 
   return (
-    <>
+    <div className="sm:mx-10 w-full">
       <Balance value={user.balance} newTransaction={newTransaction} />
 
+      {/* Options */}
       <div className="flex justify-end w-full mb-4">
         
-        {/* Options */}
         <fieldset className="flex gap-5 text-gray-500">
           <div className="flex gap-4 items-center text-gray-500">
 
@@ -150,6 +149,6 @@ export function Dashboard() {
       </div>
 
     {modal && <TransactionModal stateModal={setModal} />}
-  </>
+  </div>
   )
 }

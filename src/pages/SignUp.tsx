@@ -73,7 +73,7 @@ export function SignUp() {
 
 
   return (
-    <div className="flex flex-col max-w-[400px] w-full justify-center items-center h-full mt-[-84px]">
+    <div className="flex flex-col max-w-[400px] w-full justify-center items-center h-full">
       
         <h1 className="text-purple-500 text-2xl font-bold mb-12">
           <span className="text-purple-600">Crie sua conta</span> <br/>rapido e fácil
