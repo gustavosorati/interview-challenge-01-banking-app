@@ -52,6 +52,23 @@ export function SignUp() {
         });
       }
     }
+    // try {
+    //   await api.post("/users/create", { username, password });
+
+    //   toast.success("Cadastro concluído com sucesso !", {
+    //     position: toast.POSITION.TOP_RIGHT
+    //   });
+
+    //   setTimeout(() => {
+    //     navigate('/signin');
+    //   }, 6000);
+    // } catch(error) {
+    //   if(error instanceof ErrorEvent) {
+    //     toast.error(error?.message, {
+    //       position: toast.POSITION.TOP_RIGHT
+    //     });
+    //   }
+    // }
   }
 
 

@@ -6,9 +6,10 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { AxiosError } from "axios";
 
 type FormData = {
   username: string;
@@ -28,6 +29,8 @@ export function SignIn() {
   const { register, handleSubmit, formState: {errors}} = useForm<FormData>({
     resolver: yupResolver(schema)
   });
+
+  const navigate = useNavigate();
   
   const { login } = useContext(AuthContext);
 
@@ -39,13 +42,18 @@ export function SignIn() {
         position: toast.POSITION.TOP_RIGHT,
       });
 
-      // navigate("/")
-
+      setTimeout(() => {
+        navigate('/')
+      }, 3000);
     } catch(error) {
-      console.log(error)      
+      if(error instanceof AxiosError) {
+        toast.error(error.response?.data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+      
     }
   }
-
 
   return (
     <div className="flex flex-col max-w-[400px] w-full justify-center items-center h-full mt-[-84px]">
@@ -82,7 +90,7 @@ export function SignIn() {
           <p className="self-center text-gray-200">Não possui conta? <a href="/signup" className="text-cyan-500 underline">Cadastre-se</a></p>
         </form>
 
-      <ToastContainer />
+      <ToastContainer autoClose={3000} />
     </div>
   )
 }

@@ -62,12 +62,7 @@ export function Dashboard() {
       <Balance value={user.balance} newTransaction={newTransaction} />
 
       <div className="flex justify-end w-full mb-4">
-        {/* Filter */}
-        {/* <div className="self-start flex items-center px-2 bg-gray-800 max-w-[250px] w-full focus-within:ring-2 focus-within:ring-purple-500 rounded ">
-          <MagnifyingGlass size={24} className="text-gray-500" weight="bold"/>
-          <input type="text" className="text-gray-400 py-2 p-4 bg-transparent  text-sm  w-full outline-none" />
-        </div> */}
-
+        
         {/* Options */}
         <fieldset className="flex gap-5 text-gray-500">
           <div className="flex gap-4 items-center text-gray-500">
@@ -91,12 +86,10 @@ export function Dashboard() {
         </fieldset>
       </div>
 
-
       {/* Table */}
       <div className="overflow-x-auto relative shadow-md sm:rounded-md w-full flex gap-4">
         {user ? 
           (
-            // Table
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border-spacing-x-0 border-spacing-y-2">
               <thead className="bg-purple-600/80 text-white text-center">
                 <tr>
@@ -108,6 +101,7 @@ export function Dashboard() {
               </thead>
 
               <tbody className=" border-spacing-2 border">
+                
                 {option === "all" && (
                   <>
                     {transactions.map(transaction => (
@@ -115,13 +109,16 @@ export function Dashboard() {
                         key={transaction.created_at + transaction.id}
                         className="text-center bg-gray-800 cursor-pointer hover:bg-gray-900">
                         
-                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{new Date(transaction.created_at).toLocaleDateString("pt-BR")}</th>
+                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          {new Date(transaction.created_at).toLocaleDateString("pt-BR")}
+                        </th>
                         <td className="py-4 px-6">{transaction.id}</td>
-                        <td className="py-4 px-6">{transaction.id_credited_account === user.id_account ? "Saida" : "Entrada"}</td>
-                        <td className="py-4 px-6">{Intl.NumberFormat('pt-BR', {
-                          style: "currency",
-                          currency: "BRL"
-                        }).format(transaction.value)}</td>
+                        <td className="py-4 px-6">
+                          {transaction.id_credited_account === user.id_account ? "Saida" : "Entrada"}
+                        </td>
+                        <td className="py-4 px-6">
+                          {Intl.NumberFormat('pt-BR', { style: "currency", currency: "BRL" }).format(transaction.value)}
+                        </td>
                       </tr>
                     ))}
                   </>
@@ -148,7 +145,7 @@ export function Dashboard() {
 
               </tbody>
             </table>
-          ) : <p>teste</p>
+          ) : <p className="">Teste</p>
         }
       </div>
 

@@ -1,11 +1,24 @@
 import axios from 'axios'
 
-const token = window.localStorage.getItem('token');
+const tokenExist = window.localStorage.getItem('token');
 
-export const api = axios.create({
+let api = axios.create({
   baseURL: "http://localhost:3333",
   headers: {
     "Content-Type": "application/json",
-    "Authorization": "Bearer " + token
   }
 });
+
+if(tokenExist) {
+  const token = JSON.parse(tokenExist);
+
+  api = axios.create({
+    baseURL: "http://localhost:3333",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + token
+    }
+  });
+} 
+
+export {api}
