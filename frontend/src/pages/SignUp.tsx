@@ -44,7 +44,7 @@ export function SignUp() {
 
       setTimeout(() => {
         navigate('/signin');
-      }, 6000);
+      }, 3000);
     } catch(error) {
       if(error instanceof ErrorEvent) {
         toast.error(error?.message, {
@@ -52,23 +52,7 @@ export function SignUp() {
         });
       }
     }
-    // try {
-    //   await api.post("/users/create", { username, password });
 
-    //   toast.success("Cadastro concluído com sucesso !", {
-    //     position: toast.POSITION.TOP_RIGHT
-    //   });
-
-    //   setTimeout(() => {
-    //     navigate('/signin');
-    //   }, 6000);
-    // } catch(error) {
-    //   if(error instanceof ErrorEvent) {
-    //     toast.error(error?.message, {
-    //       position: toast.POSITION.TOP_RIGHT
-    //     });
-    //   }
-    // }
   }
 
 
@@ -116,7 +100,7 @@ export function SignUp() {
           <p className="self-center text-gray-200">Já possui conta? <a href="/signup" className="text-cyan-500 underline">Logue-se</a></p>
         </form>
 
-      <ToastContainer />
+      <ToastContainer autoClose={3000} />
     </div>
   )
 }

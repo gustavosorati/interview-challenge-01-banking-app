@@ -52,7 +52,7 @@ export function Dashboard() {
 
   if(!user.username) {
     return (
-      <p className="text-gray-100 font-bold text-2xl ">Logue-se para ter acesso <br />a todas funções do sistema</p>
+      <p className="text-gray-100 font-bold text-3xl items-center text-center">Logue-se para ter acesso <br />a todas funções do sistema</p>
     )
   }
 
