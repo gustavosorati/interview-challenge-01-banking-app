@@ -12,38 +12,53 @@ O projeto foi um desafio proposto durante uma entrevista de emprego, o sistema s
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
+<div align="center">
+  <img src="docs/o_projeto.gif" width="1080px" >
+</div>
+
 ---
+## ✨ Layout
 
-## Demonstração
+Não foi disponibilizado um layout para o desafio, ficando livre para o candidato sua elaboração: layout desenvolvido no <a href="https://www.figma.com/file/2LRat671czaGbwcspf86XW/challenge-ng.cash?node-id=4%3A576&t=U86nT72Hw79yhg7Q-1">Figma</a>
 
-Layout da aplicação: <a href="https://www.figma.com/file/2LRat671czaGbwcspf86XW/challenge-ng.cash?node-id=4%3A576&t=U86nT72Hw79yhg7Q-1">Figma</a>
+<br/>
 
+## ⚙️ Instalação
 
-<img src="docs/login.jpg" >
-<img src="docs/table.jpg" >
-<img src="docs/transaction.jpg" >
+### 📋 Pré-requisitos
 
-## Instalação
+Para rodar esse aplicativo será necessário ter instalado:
+- **postgressql** 
+- **prisma cli**
+- **nodejs**
 
-**Backend**
+### 🔧 Como utilizar
 
-- Fazer o download do projeto
-- Dentro da pasta backend, instalar as dependências `npm i` e com o docker instalado e rodando, executar o comando: `docker compose up -d`, assim o banco de dados será criado.
-- Logo em seguida executar o comando `npx prisma migrade dev` para que as tabelas sejam geradas
-- Criar variaveis ambientes `.env`:
-
-```json
-DATABASE_URL="postgresql://postgres:postgresql@localhost:5432/backend"
-TOKEN_HASH_VALIDATION="beac5f8171fcde5e2ec734cc5d25d03e7362e8de"
+Fazer o download do projeto
+```
+https://github.com/gustavosorati/interview-challenge-01-banking-app.git
 ```
 
-- Inicializar o servidor com o comando `npm run dev`.
-- O servidor já estará rodando.
+Instalar as dependências do backend e do frontend
+```
+npm i
+```
 
-**Frontend**
-- Fazer o download do projeto
-- Dentro da pasta backend, instalar as dependências `npm i`
-- Executar o projeto `npm run dev`
+Alterar os parâmetros de acesso ao banco de dados Postgres em: ``backend > .env`` seguindo o exemplo do arquivo ``.env.example``
 
-O projeto então estará rodando, após isso o primeiro passo a se fazer é cadastrar um usuário para poder realizar as transações.
+Gerar as migrates para criar as tabelas do banco
 
+```
+npx prisma migrate dev
+```
+
+Inicializar o backend e o frontend
+```
+npm run dev
+```
+
+Com o projeto rodando, basta cadastrar usuários para poder utilizar as funcionalidades do sistema.
+
+---
+
+Feito com ❤️ por [Gustavo Sorati](https://github.com/gustavosorati) 
